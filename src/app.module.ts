@@ -5,6 +5,8 @@ import { ColegiosModule } from './colegios/colegios.module';
 import { EstudiantesModule } from './estudiantes/estudiantes.module';
 import { MateriasModule } from './materias/materias.module';
 import { MateriaEstdiantesModule } from './materia-estdiantes/materia-estdiantes.module';
+import { UsersModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 @Module({
   imports: [
 
@@ -20,7 +22,7 @@ import { MateriaEstdiantesModule } from './materia-estdiantes/materia-estdiantes
       password: "root",
       database: "db_crud",
       autoLoadEntities: true,
-      synchronize: false
+      synchronize: true
     }),
 
     ColegiosModule,
@@ -30,6 +32,10 @@ import { MateriaEstdiantesModule } from './materia-estdiantes/materia-estdiantes
     MateriasModule,
 
     MateriaEstdiantesModule,
+
+    UsersModule,
+
+    AuthModule,
 
   ],
   controllers: [],
