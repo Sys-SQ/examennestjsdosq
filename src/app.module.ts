@@ -1,12 +1,10 @@
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { ColegiosModule } from './colegios/colegios.module';
-import { EstudiantesModule } from './estudiantes/estudiantes.module';
-import { MateriasModule } from './materias/materias.module';
-import { MateriaEstdiantesModule } from './materia-estdiantes/materia-estdiantes.module';
 import { UsersModule } from './users/users.module';
 import { AuthModule } from './auth/auth.module';
+import { SeriesModule } from './series/series.module';
+import { EpisodiosModule } from './episodios/episodios.module';
 @Module({
   imports: [
 
@@ -24,27 +22,24 @@ import { AuthModule } from './auth/auth.module';
       autoLoadEntities: true,
       synchronize: true,
       ssl: process.env.POSTGRES_SSL === "true",
-      extra:{
+      extra: {
         ssl:
-        process.env.POSTGRES_SSL === "true"
-        ?{
-          rejectUnauthorized:false
-        }
-        :null,
+          process.env.POSTGRES_SSL === "true"
+            ? {
+              rejectUnauthorized: false
+            }
+            : null,
       }
     }),
 
-    ColegiosModule,
-
-    EstudiantesModule,
-
-    MateriasModule,
-
-    MateriaEstdiantesModule,
 
     UsersModule,
 
     AuthModule,
+
+    SeriesModule,
+
+    EpisodiosModule,
 
   ],
   controllers: [],
